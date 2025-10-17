@@ -21,7 +21,7 @@ An AI-powered cybersecurity project that detects phishing URLs using AWS service
 ## 🚀 Setup Guide
 
 ### 1️⃣ Dataset Preparation
-Upload `phishing_dataset.csv` to an S3 bucket.
+Upload `phishing_dataset1.csv` to an S3 bucket.
 
 ### 2️⃣ Train Model
 Run `model/training/train_model.ipynb` in SageMaker to:
