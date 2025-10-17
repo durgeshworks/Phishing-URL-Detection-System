@@ -139,24 +139,49 @@ Create a table named `PhishingDetections` with a primary key `url` (String). Exa
 
 ```
 phishing-url-detector/
+│
 ├── README.md
 ├── LICENSE
 ├── .gitignore
+│
 ├── data/
 │   ├── raw/
+│   │   └── phishing_dataset.csv         # Original dataset
 │   ├── processed/
+│   │   └── features.csv                 # Feature-engineered data
 │   └── notebooks/
+│       └── data_preparation.ipynb       # Data cleaning & feature extraction
+│
 ├── model/
 │   ├── training/
+│   │   └── train_model.ipynb            # SageMaker-compatible training notebook
+    │   └── requirements.txt                 # Lambda dependencies
 │   ├── scripts/
+│   │   └── train.py                     # Training script for SageMaker job
+│   ├── output/
+│   │   └── model.tar.gz                 # Trained model artifact
 │   └── deployment/
+│       ├── inference.py                 # SageMaker inference code
+│       └── deploy_model.ipynb           # Notebook to deploy model endpoint
+│
 ├── lambda/
-│   ├── lambda_function.py
-│   ├── requirements.txt
-│   └── test_event.json
+│   ├── lambda_function.py               # AWS Lambda handler for inference
+│   └── test_event.json                  # Sample test input for Lambda
+│
 ├── infrastructure/
+│   ├── api_gateway_config.yaml          # API Gateway setup
+│   ├── dynamodb_schema.json             # DynamoDB table definition
+│   ├── cloudformation_template.yaml     # Optional IaC template
+│   └── s3_bucket_policy.json            # S3 bucket permissions
+│
 ├── frontend/
+│   ├── index.html                       # Simple input form for testing
+│   ├── script.js                        # Calls API Gateway endpoint
+│   └── style.css
+│
 └── docs/
+    ├── architecture-diagram.png         # AWS architecture (from earlier)
+    └── setup_guide.md                   # Step-by-step AWS deployment guide
 ```
 
 ---

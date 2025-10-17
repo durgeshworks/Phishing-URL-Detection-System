@@ -1,0 +1,6 @@
+{
+  "url": "http://example.com/login",
+  "prediction": "phishing",
+  "score": 0.87,
+  "timestamp": "2025-10-18T12:34:56Z"
+}
