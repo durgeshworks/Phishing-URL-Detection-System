@@ -206,5 +206,3 @@ This project is licensed under the MIT License — see the `LICENSE` file for de
 - Add a script to package and locally test Lambda using SAM.
 
 ---
-
-If you want, I can also add a `scripts/run_lambda_locally.py` helper and a basic unit test that imports `lambda/lambda_function.py` and asserts response shape.
