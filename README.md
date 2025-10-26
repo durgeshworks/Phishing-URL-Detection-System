@@ -73,6 +73,17 @@ If you plan to run the notebooks in a Jupyter environment, install the notebook 
 - Training notebooks and scripts are in `model/training/` and `model/scripts/`.
 - Trained artifacts (optional) are placed under `model/output/` or an S3 bucket defined by the training notebook.
 
+### XGBoost model format (JSON recommended)
+
+Note: recent XGBoost releases deprecated and removed the old binary model format used by some SageMaker artifacts. To ensure forward compatibility we recommend saving the model as JSON (or UBJ). This repository includes a helper script to port a SageMaker `xgboost-model` artifact to JSON:
+
+```powershell
+# extract & convert a SageMaker model artifact to JSON
+python .\scripts\port_xgboost_to_json.py --artifact model\output\model.tar.gz --out model\output\model.json
+```
+
+If you need to load a legacy binary model locally, either run the above conversion (preferred) or install an older XGBoost (for example 1.5.2) in a dedicated virtual environment, perform the conversion, then switch back to your normal environment. The FastAPI server will prefer `model/output/model.json` if present, then fall back to legacy artifact loading.
+
 Model summary (example / update when you have exact metrics):
 
 - Model type: XGBoost classifier (or Logistic Regression fallback)
