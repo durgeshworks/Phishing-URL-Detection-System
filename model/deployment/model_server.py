@@ -1,3 +1,10 @@
+""""Model server for phishing URL detection using FastAPI.
+# if venv is set up
+.\.venv\Scripts\python -m uvicorn model.deployment.model_server:app --host 127.0.0.1 --port 8000
+# PowerShell
+Invoke-RestMethod -Uri http://127.0.0.1:8000/predict -Method POST -ContentType 'application/json' -Body '{"url":"http://example.com/login"}'
+"""
+
 from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
